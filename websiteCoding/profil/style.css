@@ -1,0 +1,43 @@
+/*---- Profile Page Start ----*/
+/*Profile*/
+.profile .background-profile{
+  position: relative;
+}
+.profile .profile-content {
+  position: sticky;
+  margin-top: -30px;
+  background: #ffffffdc;
+  padding: 20px 0;
+}
+.profile .profile-content img{
+  position: relative;
+}
+.profile-content .edit{
+  background: #a3c8d1d2;
+  position: sticky;
+  border-radius: 0 0 5px 0;
+  padding: 10px;
+  color: black;
+  margin-top: -44px;
+  margin-left: 105px;
+  width: 45px;
+}
+
+.loc i{
+  font-size: 12px;
+  color: #82837f;
+}
+
+.loc span{
+  color: #82837f;
+}
+
+.menu-profile a{
+  color: #000000;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.menu-profile i{
+  font-size: 1.5rem;
+}
