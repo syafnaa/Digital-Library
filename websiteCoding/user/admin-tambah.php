@@ -15,8 +15,6 @@ if(isset($_POST['name'])) {
    
 ?>
 
-
-
     <div class="content-wrapper">
     <div class="col-lg-12 grid-margin stretch-card" style="margin-top: -5rem;">
     <div class="card">
