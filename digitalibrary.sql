@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2024 at 08:15 AM
+-- Generation Time: Mar 04, 2024 at 02:59 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -41,10 +41,10 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`bukuID`, `judul`, `penulis`, `penerbit`, `tahunTerbit`, `jml_buku`) VALUES
-(2, 'Beware Worn Down By Time', 'ADDIN JAUHARUDIN', 'Penerbit Buku Kompas', 2023, 4),
-(3, 'The Guardians', 'John Grisham', 'Gramedia Pustaka Utama', 2020, 20),
-(4, 'Putri Salju', 'Syafna', 'haloSyafna', 2005, 17),
-(5, 'Hex Hall', 'Rachel Hawkins', 'Ufuk Fiction', 2013, 14),
+(2, 'Beware Worn Down By Time', 'ADDIN JAUHARUDIN', 'Penerbit Buku Kompas', 2023, 3),
+(3, 'The Guardians', 'John Grisham', 'Gramedia Pustaka Utama', 2020, 19),
+(4, 'Putri Salju', 'Syafna', 'haloSyafna', 2005, 16),
+(5, 'Hex Hall', 'Rachel Hawkins', 'Ufuk Fiction', 2013, 12),
 (10, 'Hilmy Milan ', 'Nadia Ristivani', 'Kawah Media Pustaka', 2021, 19);
 
 -- --------------------------------------------------------
@@ -110,10 +110,10 @@ CREATE TABLE `koleksipribadi` (
 --
 
 INSERT INTO `koleksipribadi` (`koleksiID`, `userID`, `bukuID`) VALUES
-(3, 1, 5),
 (5, 1, 2),
 (10, 2, 2),
-(14, 2, 5);
+(14, 2, 5),
+(15, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -188,7 +188,23 @@ INSERT INTO `log_pinjam` (`Keterangan`, `Waktu`) VALUES
 ('Members Borrow Book', '2024-02-19 11:52:39'),
 ('Members Borrow Book', '2024-02-19 11:52:54'),
 ('Member Replaces Loan Book', '2024-02-19 13:37:09'),
-('Member Replaces Loan Book', '2024-02-19 13:37:09');
+('Member Replaces Loan Book', '2024-02-19 13:37:09'),
+('Member Replaces Loan Book', '2024-02-20 14:39:18'),
+('Member Replaces Loan Book', '2024-02-20 14:39:18'),
+('Members Borrow Book', '2024-02-21 08:16:14'),
+('Member Replaces Loan Book', '2024-02-21 08:17:37'),
+('Member Replaces Loan Book', '2024-02-21 08:17:37'),
+('Members Borrow Book', '2024-02-25 18:51:22'),
+('Members Return Books', '2024-02-25 18:51:42'),
+('Members Borrow Book', '2024-02-25 18:52:20'),
+('Member Replaces Loan Book', '2024-02-25 18:54:59'),
+('Member Replaces Loan Book', '2024-02-25 18:54:59'),
+('Members Borrow Book', '2024-02-26 16:25:12'),
+('Member Replaces Loan Book', '2024-02-26 16:28:39'),
+('Member Replaces Loan Book', '2024-02-26 16:28:39'),
+('Members Borrow Book', '2024-02-26 16:51:16'),
+('Member Replaces Loan Book', '2024-02-26 16:55:42'),
+('Member Replaces Loan Book', '2024-02-26 16:55:42');
 
 -- --------------------------------------------------------
 
@@ -214,8 +230,10 @@ INSERT INTO `peminjaman` (`peminjamanID`, `userID`, `bukuID`, `tanggalPeminjaman
 (6, 2, 3, '2024-01-01', '2024-01-04', 'dikembalikan', 1),
 (9, 2, 4, '2024-01-08', '2024-01-16', 'dikembalikan', 1),
 (22, 1, 5, '2024-02-14', '2024-02-17', 'dikembalikan', 1),
-(23, 1, 10, '2024-02-10', '2024-02-13', 'dipinjam', 1),
-(24, 1, 2, '2024-02-24', '2024-02-28', 'dipinjam', 1);
+(23, 1, 10, '2024-02-10', '2024-02-13', 'dikembalikan', 1),
+(24, 1, 2, '2024-02-24', '2024-02-28', 'dikembalikan', 1),
+(27, 16, 4, '2024-02-19', '2024-02-13', 'dikembalikan', 1),
+(29, 18, 5, '2024-02-14', '2024-02-16', 'dikembalikan', 1);
 
 --
 -- Triggers `peminjaman`
@@ -283,9 +301,8 @@ CREATE TABLE `ulasanbuku` (
 
 INSERT INTO `ulasanbuku` (`ulasanID`, `userID`, `bukuID`, `ulasan`, `rating`) VALUES
 (23, 1, 10, 'bagusss banget', 7),
-(24, 1, 4, 'hmm biasa aja', 5),
 (25, 2, 10, 'baper', 7),
-(26, 2, 3, 'keren sih karakternya', 7);
+(30, 18, 5, 'keren', 9);
 
 -- --------------------------------------------------------
 
@@ -310,7 +327,94 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userID`, `namaLengkap`, `username`, `password`, `email`, `alamat`, `profile_img`, `bio`) VALUES
 (1, 'Syafna Marwa', 'syafna', '9cdfdc6fc77ab35d2072cc55e60ee629', 'syafna@gmail.com', 'Metro', NULL, NULL),
-(2, 'Lee Haechan', 'ecan', '1e22680224cc6b2ef0bd2a34bc251134', 'ecan@gmail.com', 'Metro', NULL, NULL);
+(2, 'Lee Haechan', 'ecan', '1e22680224cc6b2ef0bd2a34bc251134', 'ecan@gmail.com', 'Metro', NULL, NULL),
+(16, 'lucas', 'lucas', 'dc53fc4f621c80bdc2fa0329a6123708', 'lucas@gmail.com', NULL, NULL, NULL),
+(18, 'jay', 'jay', 'baba327d241746ee0829e7e88117d4d5', 'jay@gmail.com', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vdetailpinjam`
+-- (See below for the actual view)
+--
+CREATE TABLE `vdetailpinjam` (
+`namaLengkap` varchar(50)
+,`bukuID` int(11)
+,`tanggalPeminjaman` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vkoleksi`
+-- (See below for the actual view)
+--
+CREATE TABLE `vkoleksi` (
+`username` varchar(30)
+,`bukuID` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vpeminjaman`
+-- (See below for the actual view)
+--
+CREATE TABLE `vpeminjaman` (
+`username` varchar(30)
+,`judul` varchar(50)
+,`tanggalPeminjaman` date
+,`statusPeminjaman` enum('dipinjam','dikembalikan')
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vulasan`
+-- (See below for the actual view)
+--
+CREATE TABLE `vulasan` (
+`username` varchar(30)
+,`judul` varchar(50)
+,`ulasan` text
+,`rating` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vdetailpinjam`
+--
+DROP TABLE IF EXISTS `vdetailpinjam`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vdetailpinjam`  AS SELECT `u`.`namaLengkap` AS `namaLengkap`, `p`.`bukuID` AS `bukuID`, `p`.`tanggalPeminjaman` AS `tanggalPeminjaman` FROM (`user` `u` join `peminjaman` `p`) WHERE `u`.`userID` = `p`.`userID``userID`  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vkoleksi`
+--
+DROP TABLE IF EXISTS `vkoleksi`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vkoleksi`  AS SELECT `u`.`username` AS `username`, `k`.`bukuID` AS `bukuID` FROM (`user` `u` join `koleksipribadi` `k`) WHERE `u`.`userID` = `k`.`userID``userID`  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vpeminjaman`
+--
+DROP TABLE IF EXISTS `vpeminjaman`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vpeminjaman`  AS SELECT `u`.`username` AS `username`, `b`.`judul` AS `judul`, `p`.`tanggalPeminjaman` AS `tanggalPeminjaman`, `p`.`statusPeminjaman` AS `statusPeminjaman` FROM ((`user` `u` join `peminjaman` `p` on(`u`.`userID` = `p`.`userID`)) join `buku` `b` on(`p`.`bukuID` = `b`.`bukuID`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vulasan`
+--
+DROP TABLE IF EXISTS `vulasan`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vulasan`  AS SELECT `u`.`username` AS `username`, `b`.`judul` AS `judul`, `ub`.`ulasan` AS `ulasan`, `ub`.`rating` AS `rating` FROM ((`user` `u` join `ulasanbuku` `ub` on(`u`.`userID` = `ub`.`userID`)) join `buku` `b` on(`ub`.`bukuID` = `b`.`bukuID`))  ;
 
 --
 -- Indexes for dumped tables
@@ -380,49 +484,49 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `bukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kategoribuku`
 --
 ALTER TABLE `kategoribuku`
-  MODIFY `kategoriID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `kategoriID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kategoribuku_relasi`
 --
 ALTER TABLE `kategoribuku_relasi`
-  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `kategoriBukuID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `koleksipribadi`
 --
 ALTER TABLE `koleksipribadi`
-  MODIFY `koleksiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `koleksiID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `peminjamanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `petugasID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `petugasID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ulasanbuku`
 --
 ALTER TABLE `ulasanbuku`
-  MODIFY `ulasanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ulasanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
