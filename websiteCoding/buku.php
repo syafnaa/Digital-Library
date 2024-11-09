@@ -251,7 +251,7 @@ if (isset($_POST['bubah'])) {
  
 }
 
-$query = mysqli_query($koneksi, "SELECT*FROM buku");
+$query = mysqli_query($koneksi, "SELECT*FROM buku"); 
 while ($data = mysqli_fetch_array($query)) {
 ?>
 <div class="modal fade" id="ubah<?php echo $data['bukuID'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

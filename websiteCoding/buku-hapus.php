@@ -7,3 +7,4 @@ if ($query) {
     echo '<script>alert("Data gagal dihapus"); location.href="index.php?page=buku"; </script>';
 }
 ?>
+

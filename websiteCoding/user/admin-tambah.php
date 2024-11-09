@@ -11,8 +11,7 @@ if(isset($_POST['name'])) {
         } else {
             echo '<script>alert("Tambah data gagal")</script>';
         }
-    }
-   
+    
 ?>
 
     <div class="content-wrapper">
